@@ -1,0 +1,17 @@
+from bs4 import BeautifulSoup
+with open('index.html','r') as html_file:
+    content= html_file.read()
+    soup =BeautifulSoup(content,'lxml')
+    couses_html_tags =soup.find_all('div', class_ = 'card')
+    for couse in couses_html_tags:
+        couse_name=couse.h1.text
+        course_price= couse.a.text.split()[-1]
+        print(f'{couse_name}  Cost- {course_price}')
+        # print(couse_name)
+        # print(course_price)
+
+      #
+        https://stackoverflow.com/questions/58419896/writing-scraped-data-into-json-using-python
+
+
+
